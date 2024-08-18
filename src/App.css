@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: "Poppins", sans-serif;
+}
+
+.irul-text {
+  color: #c9d1d9;
+}
+
+.verified {
+    color: #1da1f2;
+    margin-left: 5px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid #292929;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk halaman Project */
+.project-section {
+  padding: 40px 0;
+  background-color: #292929; /* Warna latar belakang */
+}
+
+.card-project {
+  background-color: #008585;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-project:hover {
+  transform: translateY(-10px); /* Sedikit mengangkat saat hover */
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Menjaga rasio 16:9 */
+  object-fit: cover; /* Menjaga gambar tetap sesuai */
+}
+
+.project-details {
+  padding: 15px;
+  text-align: center;
+}
+
+/* Tombol untuk View Project */
+.btn-project {
+  display: inline-block;
+  padding: 6px 12px; /* Ukuran lebih kecil */
+  background-color: transparent; /* Tombol transparan */
+  color: #ffffff; /* Warna teks putih */
+  font-size: 0.8rem; /* Ukuran font lebih kecil */
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #ffffff; /* Garis batas (stroke) warna putih */
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.3s ease; /* Transisi pada hover */
+}
+
+/* Slide Background Animation */
+.btn-project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.btn-project:hover::before {
+  left: 0;
+}
+
+.btn-project:hover {
+  color: #ffffff;
+  transform: scale(1.05); /* Sedikit perbesar saat hover */
+}
+
+.btn-project:active {
+  transform: scale(0.95); /* Sedikit perkecil saat ditekan */
+}
+
+/* Styling for buttons in social media list */
+.social-btn {
+  display: inline-block;
+  border: 2px solid white; /* Stroke white */
+  border-radius: 0; /* Square shape */
+  padding: 8px; /* Small padding */
+  width: 40px; /* Small size */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.social-btn:hover {
+  background-color: #00adb5; /* Light blue hover color */
+  border-color: #00adb5;
+}
+
+.social-btn i {
+  font-size: 18px; /* Icon size */
+}
+
+/* List item margin */
+li.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Button floating styles */
+.btn-floating {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow */
+  border-radius: 50%; /* Circular shadow */
+}
+
+/* Card container styling */
+.card-skills {
+  background-color: #1f1f1f; /* Warna latar belakang gelap */
+  color: #f1f1f1; /* Warna teks terang */
+  border: 1px solid #333333; /* Border warna abu-abu gelap */
+  border-radius: 10px; /* Membuat sudut kartu melengkung */
+  padding: 20px;
+  margin: 15px 0; /* Menambahkan spasi antara kartu */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan lembut */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect for card */
+.card-skills:hover {
+  background-color: #2d2d2d; /* Mengubah warna background saat di-hover */
+  transform: translateY(-5px); /* Kartu naik sedikit saat di-hover */
+}
+
+/* Title of the card */
+.card-skills-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #00adb5; /* Warna biru untuk judul kartu */
+}
+
+/* Content inside the card */
+.card-skills-content {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Contact Section Styling */
+.contact-section {
+  background-color: #121212; /* Background warna gelap untuk dark mode */
+  color: #f1f1f1; /* Warna teks terang */
+  padding: 50px 0;
+}
+
+/* Card Styling */
+.card-contact {
+  background-color: #ffffff; /* Warna putih untuk card */
+  color: #333333; /* Warna teks gelap */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  max-width: 500px;
+  margin: 0 auto; /* Center the card */
+  opacity: 0;
+  transform: translateY(50px); /* Awal posisi card di bawah */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Animasi masuk */
+}
+
+/* Animasi card muncul */
+.animate-card {
+  opacity: 1;
+  transform: translateY(0); /* Card kembali ke posisi semula */
+}
+
+/* Hover effect to give floating effect */
+.card-contact:hover {
+  transform: translateY(-10px); /* Mengambang sedikit ke atas */
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2); /* Efek bayangan lebih besar saat hover */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transisi halus saat hover */
+}
+
+/* Floating animation */
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px); /* Naik sedikit */
+  }
+  100% {
+    transform: translateY(0px); /* Kembali ke posisi semula */
+  }
+}
+
+/* Apply floating animation to the card */
+.card-contact {
+  animation: floating 3s ease-in-out infinite; /* Animasi mengambang berulang */
+}
+
+/* Title and Content Styling */
+.card-contact-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #00adb5; /* Warna biru untuk judul */
+}
+
+.card-contact-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* List Styling */
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 10px;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .card-contact {
+    padding: 20px;
+  }
+
+  .card-contact-title {
+    font-size: 1.5rem;
+  }
+
+  .card-contact-content {
+    font-size: 0.9rem;
+  }
+}
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 20px 0;
+    margin-top: 20px;
+    text-align: center; 
+    border-top: 1px solid #eaeaea;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Links */
+footer a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.pulse-wrapper {
+  position: relative;
+}
+
+.spinner-border {
+  position: relative;
+  z-index: 1;
+}
+
+.pulse-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  background-color: rgba(0, 173, 181); /* Adjust color and opacity as needed */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #1f1f1f;
+}
+
+.navbar-brand, .nav-link {
+  color: #f1f1f1;
+}
+
+.nav-link:hover {
+  color: #00adb5;
+}
