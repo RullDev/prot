@@ -1,34 +1,36 @@
-import React from 'react';
+import React from "react";
 
 const Skills = () => {
+  const skills = [
+    { id: 1, logo: "../public/assets/icons/javascript.svg" },
+    { id: 2, logo: "../public/assets/icons/typescript.svg" },
+    { id: 3, logo: "../public/assets/icons/golang.svg" },
+    { id: 4, logo: "../public/assets/icons/html.svg" },
+    { id: 5, logo: "../public/assets/icons/css.svg" },
+    { id: 6, logo: "../public/assets/icons/reactjs.svg" },
+    { id: 7, logo: "../public/assets/icons/nodejs.svg" },
+    { id: 8, logo: "../public/assets/icons/mongodb.svg" },
+    { id: 9, logo: "../public/assets/icons/docker.svg" },
+  ];
+
   return (
     <section className="skills-section py-5" id="skills">
       <div className="container">
-        <h2 className="text-center mb-5">My Skills</h2>
-
-        <div className="card-skills">
-          <h3 className="card-skills-title">JavaScript</h3>
-          <p className="card-skills-content">
-            Experienced in building dynamic web applications using JavaScript, React.js, and Node.js.
-          </p>
-        </div>
-
-        <div className="card-skills">
-          <h3 className="card-skills-title">CSS & HTML</h3>
-          <p className="card-skills-content">
-            Proficient in crafting responsive and visually appealing interfaces using modern CSS techniques.
-          </p>
-        </div>
-
-        <div className="card-skills">
-          <h3 className="card-skills-title">Backend Development</h3>
-          <p className="card-skills-content">
-            Skilled in building robust server-side applications with Express.js, MongoDB, and SQL databases.
-          </p>
+        <h2 className="text-center mb-5">My <span style={{ color: "#00adb5"}}>Skills</span></h2>
+        <div className="skills-grid">
+          {skills.map((skill) => (
+            <div key={skill.id} className="skill-card">
+              <img
+                src={skill.logo}
+                alt="Skill Logo"
+                className="skill-logo"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Skills;

@@ -13,6 +13,11 @@ const MainSection = () => {
     return () => clearTimeout(timer);
   }, []);
   
+  const handleIframeLoad = () => {
+    setLoading(false); // Set loading to false once iframe is loaded
+  };
+
+  
   return (
     <section className="text-center py-5" id="main">
       <div className="container">
@@ -52,7 +57,7 @@ const MainSection = () => {
 </div>
         {/* Spotify Section */}
         <div className="spotify-section mt-5">
-          <h3>What I'm Listening To</h3>
+          <h3>What I'm <span style={{ color: "#00adb5" }}>Listening</span> To</h3>
           {loading ? (
   <div className="d-flex justify-content-center align-items-center" style={{ height: '380px' }}>
     <div className="spinner-border text-primary pulse" role="status">
@@ -61,6 +66,7 @@ const MainSection = () => {
   </div>
           ) : (
           <iframe
+          className={`fadeIn ${loading ? 'loaded' : ''}`}
             src="https://open.spotify.com/embed/playlist/1K1Sz1NldB7G8Bibs5GZuI?si=pA-HRONzTYGdXd5MJimTrw"
             width="300" 
             height="380"
@@ -68,6 +74,7 @@ const MainSection = () => {
             allowtransparency="true"
             allow="encrypted-media"
             title="Spotify Playlist"
+            onLoad={handleIframeLoad}
           ></iframe>
   )}
         </div>

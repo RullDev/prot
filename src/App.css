@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 body {
+  margin-top: 28px;
   background-color: #0d1117;
   color: #c9d1d9;
   font-family: "Poppins", sans-serif;
@@ -24,78 +25,118 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling untuk halaman Project */
+/* General styles */
 .project-section {
-  padding: 40px 0;
-  background-color: #292929; /* Warna latar belakang */
+  padding: 4rem 0;
+  background: #111;
+  color: #fff;
 }
 
 .card-project {
-  background-color: #008585;
+  position: relative;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-project:hover {
-  transform: translateY(-10px); /* Sedikit mengangkat saat hover */
+  transform: scale(1.05);
 }
 
 .project-image {
   width: 100%;
-  aspect-ratio: 16 / 9; /* Menjaga rasio 16:9 */
-  object-fit: cover; /* Menjaga gambar tetap sesuai */
+  height: 200px;
+  object-fit: cover;
 }
 
-.project-details {
-  padding: 15px;
-  text-align: center;
-}
-
-/* Tombol untuk View Project */
-.btn-project {
-  display: inline-block;
-  padding: 6px 12px; /* Ukuran lebih kecil */
-  background-color: transparent; /* Tombol transparan */
-  color: #ffffff; /* Warna teks putih */
-  font-size: 0.8rem; /* Ukuran font lebih kecil */
-  font-weight: bold;
-  text-transform: uppercase;
-  border: 2px solid #ffffff; /* Garis batas (stroke) warna putih */
-  border-radius: 5px;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  transition: all 0.3s ease; /* Transisi pada hover */
-}
-
-/* Slide Background Animation */
-.btn-project::before {
-  content: "";
-  position: absolute;
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
   top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
-  transition: all 0.4s ease;
-  z-index: 0;
-}
-
-.btn-project:hover::before {
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
-.btn-project:hover {
-  color: #ffffff;
-  transform: scale(1.05); /* Sedikit perbesar saat hover */
+.modal-content {
+  background: #222;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: fadeInScale 0.4s ease;
 }
 
-.btn-project:active {
-  transform: scale(0.95); /* Sedikit perkecil saat ditekan */
+.modal-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
+
+.modal-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #ddd;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.btn-project-modal {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.btn-project-modal:hover {
+  background: linear-gradient(135deg, #00adb5, #333);
+}
+
+/* Close button */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: #00adb5;
+}
+
+/* Animations */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 /* Styling for buttons in social media list */
 .social-btn {
@@ -132,36 +173,57 @@ li.mx-2 {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow */
   border-radius: 50%; /* Circular shadow */
 }
+/* Add the following CSS in your styles */
+.skills-section {
+  background-color: #000;
+  color: #fff;
+  padding: 3rem 0;
+}
 
-/* Card container styling */
-.card-skills {
-  background-color: #1f1f1f; /* Warna latar belakang gelap */
-  color: #f1f1f1; /* Warna teks terang */
-  border: 1px solid #333333; /* Border warna abu-abu gelap */
-  border-radius: 10px; /* Membuat sudut kartu melengkung */
-  padding: 20px;
-  margin: 15px 0; /* Menambahkan spasi antara kartu */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan lembut */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Lebih besar dari 100px */
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* Tetap 4 ikon per baris */
+    gap: 1rem; /* Jarak lebih kecil antar elemen di layar kecil */
+  }
+}
+
+.skill-card {
+  background: transparent;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  max-width: 150px; /* Batasi lebar kartu */
 }
 
-/* Hover effect for card */
-.card-skills:hover {
-  background-color: #2d2d2d; /* Mengubah warna background saat di-hover */
-  transform: translateY(-5px); /* Kartu naik sedikit saat di-hover */
+.skill-card:hover {
+  transform: scale(1.1);
 }
 
-/* Title of the card */
-.card-skills-title {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #00adb5; /* Warna biru untuk judul kartu */
+.skill-logo {
+  width: 40px;
+  height: 40px;
+  filter: invert(1); /* Filter untuk mengubah warna logo menjadi putih */
+  transition: transform 0.3s ease;
 }
 
-/* Content inside the card */
-.card-skills-content {
-  font-size: 1rem;
-  line-height: 1.6;
+.skill-card:active .skill-logo {
+  transform: rotate(15deg);
+}
+
+.skills-grid > .skill-card:last-child:nth-child(4n+1) {
+  grid-column: 2 / span 2; /* Tempatkan ikon terakhir di tengah */
+  justify-self: center; /* Pusatkan ikon di dalam grid */
 }
 
 /* Contact Section Styling */
@@ -241,6 +303,7 @@ li.mx-2 {
 
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
+  
   .card-contact {
     padding: 20px;
   }
@@ -255,26 +318,53 @@ li.mx-2 {
 }
 
 /* Footer */
+
 footer {
-    background-color: #ffffff;
-    color: #333333;
-    padding: 20px 0;
-    margin-top: 20px;
-    text-align: center; 
-    border-top: 1px solid #eaeaea;
-    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.15);;
+  backdrop-filter: blur(15px); /* Efek blur */
+  -webkit-backdrop-filter: blur(15px); /* Blur untuk Safari */
+  color: #fff; /* Warna teks gelap untuk kontras */
+  padding: 10px 0; /* Padding vertikal lebih kecil */
+  margin-top: 20px;
+  text-align: center; 
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Garis atas tipis */
+  box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
 }
 
-/* Footer Links */
-footer a {
-    color: #58a6ff;
-    text-decoration: none;
+/* Teks Footer */
+footer p {
+  margin: 0;
+  font-size: 0.85rem; /* Ukuran teks lebih kecil */
+  font-weight: 400;
+  line-height: 1.4; /* Line height lebih kecil untuk tinggi minimum */
 }
 
-footer a:hover {
-    text-decoration: underline;
+/* Link di Footer */
+.footer-link {
+  color: #007bff; /* Warna biru netral */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem; /* Ukuran teks link lebih kecil */
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease;
 }
 
+.footer-link:hover {
+  color: #0056b3; /* Biru lebih gelap saat hover */
+  text-shadow: 0px 0px 3px rgba(0, 91, 179, 0.5); /* Efek cahaya */
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 768px) {
+  footer {
+    padding: 8px 10px; /* Padding lebih kecil untuk layar kecil */
+  }
+  footer p {
+    font-size: 0.8rem; /* Ukuran teks lebih kecil untuk layar kecil */
+  }
+}
+
+
+/* Spinner */
 .pulse-wrapper {
   position: relative;
 }
@@ -313,14 +403,429 @@ footer a:hover {
 }
 
 /* Navbar styling */
+/* Global Styles for Navbar */
 .navbar {
-  background-color: #1f1f1f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-brand, .nav-link {
-  color: #f1f1f1;
+.navbar .container-fluid {
+  padding: 0.5rem 1rem;
 }
 
-.nav-link:hover {
+/* Navbar Links */
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 25px;
+}
+
+/* Base styles for the nav link */
+.navbar-nav .nav-link {
+  position: relative;
+  display: inline-block;
+  color: white; /* Default color */
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect: underline */
+.navbar-nav .nav-link:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #00adb5; /* Light blue underline */
+  transition: width 0.3s ease;
+}
+
+/* Hover underline animation */
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: transparent;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+/* Keyframes for fade-in-right */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Navbar Hamburger Button */
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
+}
+
+.navbar-toggler-icon {
+  font-size: 24px;
+  color: white;
+  display: inline-block;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler.collapsed .navbar-toggler-icon::before {
+  content: '\f00d'; /* FontAwesome X icon */
+  font-family: 'Font Awesome 5 Free'; 
+  font-weight: 900;
+  font-size: 28px;
+}
+
+.navbar-toggler .navbar-toggler-icon::before {
+  content: '\f0c9'; /* FontAwesome hamburger icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 28px;
+  transition: all 0.3s ease;
+}
+
+/* Navbar Collapse and Blur Effect */
+.navbar-collapse {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.15); /* White background with slight transparency */
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.navbar-collapse.show {
+  backdrop-filter: blur(10px); /* Stronger blur when menu is open */
+  animation: fadeInDown 1.5s;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0; /* Completely transparent at the start */
+    transform: translateY(-20px); /* Move slightly upwards */
+  }
+  100% {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Back to original position */
+  }
+}
+
+/* Add spacing to prevent overlap */
+section {
+  padding-top: 80px; /* Ensure content isn't hidden under the navbar */
+}
+
+/* Custom Styling for Navbar on Scroll */
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.95); /* Darker background when scrolled */
+}
+
+/* Hover on active navbar links */
+.navbar-nav .nav-item.active .nav-link {
   color: #00adb5;
+}
+
+
+/*Scroller*/
+
+.cs-down-wrapper {
+  position: sticky; /* Membuat ikon sticky */
+  top: 10px; /* Posisi sticky dari atas viewport */
+  z-index: 10; /* Memastikan ikon berada di depan elemen lain */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cs-down {
+  height: 35px;
+  width: 20px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+}
+
+.cs-down:before {
+  content: '';
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  animation: UpAndDown 3s infinite;
+}
+
+@keyframes UpAndDown {
+  0%,
+  100% {
+    top: 30%;
+  }
+  50% {
+    top: 70%;
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+
+/* Hamburger Menu Icon Styling */
+.menu {
+  --s: 30px; /* control the size (lebih kecil) */
+  --c: white; /* the color */
+  
+  height: var(--s);
+  aspect-ratio: 1;
+  border: none;
+  padding: 0;
+  border-inline: calc(var(--s)/2) solid #0000;
+  box-sizing: content-box;
+  --_g1: linear-gradient(var(--c) 20%,#0000 0 80%,var(--c) 0) 
+         no-repeat content-box border-box;
+  --_g2: radial-gradient(circle closest-side at 50% 12.5%,var(--c) 95%,#0000) 
+         repeat-y content-box border-box;
+  background: 
+    var(--_g2) left  var(--_p,0px) top,
+    var(--_g1) left  calc(var(--s)/10 + var(--_p,0px)) top,
+    var(--_g2) right var(--_p,0px) top,
+    var(--_g1) right calc(var(--s)/10 + var(--_p,0px)) top;
+  background-size: 
+    20% 80%,
+    40% 100%;
+  position: relative;
+  clip-path: inset(0 25%);
+  -webkit-mask: linear-gradient(90deg,#0000,#000 25% 75%,#0000);
+  cursor: pointer;
+  transition: 
+    background-position .3s var(--_s,.3s), 
+    clip-path 0s var(--_s,.6s);
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+}
+
+.menu:before,
+.menu:after {
+  content:"";
+  position: absolute;
+  border-radius: var(--s);
+  inset: 40% 0;
+  background: var(--c);
+  transition: transform .3s calc(.3s - var(--_s,.3s));
+}
+
+.menu:checked {
+  clip-path: inset(0);
+  --_p: calc(-1*var(--s));
+  --_s: 0s;
+}
+
+.menu:checked:before {
+  transform: rotate(45deg);
+}
+
+.menu:checked:after {
+  transform: rotate(-45deg);
+}
+
+.menu:focus-visible {
+  clip-path: none;
+  -webkit-mask: none;
+  border: none;
+  outline: 2px solid var(--c);
+  outline-offset: 5px;
+}
+
+/* Navbar Style for responsive layout */
+.navbar-toggler-icon {
+  display: none; /* Hide default icon */
+}
+
+/* Posisi hamburger di kanan dan ukuran lebih kecil */
+#menu-toggle {
+  position: absolute;
+  top: 15px;  /* Atur posisi vertikal (sesuaikan sesuai kebutuhan) */
+  right: 10px;  /* Memposisikan ke kanan */
+  z-index: 9999; /* Memastikan berada di atas elemen lain */
+}
+
+@media (max-width: 768px) {
+  /* Menampilkan custom menu icon saat responsif */
+  .navbar-toggler-icon {
+    display: block; 
+  }
+}
+
+/* General Reset */
+
+
+/* Popup Overlay */
+.waifu-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.waifu-popup-content {
+  background: rgba(30, 30, 30, 0.9);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 400px;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: popupOpen 0.4s ease-in-out;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Title */
+.waifu-title {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Waifu List */
+.waifu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: smoothScroll 0.5s ease-in-out;
+}
+
+.waifu-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  backdrop-filter: blur(15px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Waifu Image */
+.waifu-image-wrapper {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.waifu-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Waifu Details */
+.waifu-status {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #00adb5;
+}
+
+.waifu-name {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.waifu-desc {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Animations */
+
+@keyframes popupOpen {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popupClose {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes smoothScroll {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
