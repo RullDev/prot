@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet');
 
 body {
   margin-top: 28px;
   background-color: #0d1117;
   color: #c9d1d9;
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .irul-text {
