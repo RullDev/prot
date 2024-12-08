@@ -320,7 +320,7 @@ li.mx-2 {
 /* Footer */
 
 footer {
-  background: rgba(255, 255, 255, 0.15);;
+  background: transparent;
   backdrop-filter: blur(15px); /* Efek blur */
   -webkit-backdrop-filter: blur(15px); /* Blur untuk Safari */
   color: #fff; /* Warna teks gelap untuk kontras */
