@@ -30,25 +30,25 @@ const MainSection = () => {
                         
 <li className="mx-2">
   <a className="btn btn-outline-light btn-floating m-1 social-btn" href="https://github.com/rlzyy">
-    <i className="fab fa-github">
+    <i className="fab fa-github fa-fade">
     </i>
   </a>
 </li>
 <li className="mx-2">
   <a className="btn btn-outline-light btn-floating m-1 social-btn" href="https://t.me/rulskeyy">
-    <i className="fab fa-telegram">
+    <i className="fab fa-telegram fa-fade">
       </i>
   </a>
 </li>
                       <li className="mx-2">
                         <a className="btn btn-outline-light btn-floating m-1 social-btn" href="https://trakteer.id/rlvyn">
-                          <i className="fab fa-solid fa-wallet">
+                          <i className="fab fa-solid fa-wallet fa-fade">
                             </i>
                         </a>
                       </li>
                           <li className="mx-2">
                             <a className="btn btn-outline-light btn-floating m-1 social-btn" href="https://wa.me/message/BULDAAJKYYQGH1">
-                              <i className="fab fa-solid fa-user-secret">
+                              <i className="fab fa-solid fa-user-secret fa-fade">
                                 </i>
                         </a>
                       </li>
