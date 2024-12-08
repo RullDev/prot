@@ -413,7 +413,6 @@ footer p {
   z-index: 1000;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s;
 }
 
 .navbar .container-fluid {
@@ -513,6 +512,7 @@ footer p {
   background-color: rgba(255, 255, 255, 0.15); /* White background with slight transparency */
   transition: all 0.3s ease;
   border-radius: 10px;
+  animation: fadeInDown 1.5s;
 }
 
 .navbar-collapse.show {
