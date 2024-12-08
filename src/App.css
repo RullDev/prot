@@ -512,7 +512,6 @@ footer p {
   background-color: rgba(255, 255, 255, 0.15); /* White background with slight transparency */
   transition: all 0.3s ease;
   border-radius: 10px;
-  animation: fadeInDown 1.5s;
 }
 
 .navbar-collapse.show {
